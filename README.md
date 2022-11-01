@@ -1,24 +1,37 @@
-# README
+# Meicon
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##概要
+フリーアイコン用画像の投稿、ダウンロードサイト
 
-Things you may want to cover:
+###テーマ
+アイコン用画像を気軽に探せる、共有できるSNS
 
-* Ruby version
+###テーマを選んだ理由
+SNSの普及により、アイコンとは自分自身の”顔”を表現するものとしてなくてはならない。
+しかし、アニメ画像のアイコンや、イラストレーターの作品を無断でアイコンにするなど、
+著作権侵害などの問題が多発している。
+SNSで配布しているところもあるが、タイムラインがすぐに流れてしまうので、後から探すのも大変である。
+アイコンのみを投稿できるところがあれば、探す側が無断転載してしまう心配もなくなり、
+投稿側も普段のイラストと区別して投稿できるので、便利だと思ったため。
 
-* System dependencies
+###ターゲットユーザ
+アイコン用画像を探している人
+フリーアイコンを制作している人
+アニメ会社などのフリーアイコンを配布している企業
 
-* Configuration
+###主な利用シーン
+SNS用のアイコンを探しているとき、フリーアイコン用画像を配布するとき
 
-* Database creation
+##設計書
 
-* Database initialization
+##開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* How to run the test suite
+##使用素材
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+##文責
+藤原三奈
