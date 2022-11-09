@@ -1,2 +1,32 @@
-<h1>Public::Posts#show</h1>
-<p>Find me in app/views/public/posts/show.html.erb</p>
+<div class="row justify-content-center">
+  <%= image_tag @user.get_user_image(50, 50) %>
+  <%= @user.name %>
+  <!--いいね-->
+  <% if @post.favorited_by?(current_user) %>
+    <p>
+      <%= link_to post_favorites_path(@post), method: :delete do %>
+        ♥<%= @post.favorites.count %>
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to post_favorites_path(@post), method: :post do %>
+        ♡<%= @post.favorites.count %>
+      <% end %>
+    </p>
+  <% end %>
+</div>
+
+<div class="row justify-content-center">
+  <%= image_tag @post.get_post_image(400, 400) %>
+</div>
+
+<div class="row justify-content-center">
+  <%= @post.title %>
+</div>
+
+<div class="row justify-content-center">
+  <%= @post.body %>
+</div>
+
+<%= link_to "削除", post_path(@post), method: :delete, class: "btn btn-danger btn-sm" %>

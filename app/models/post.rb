@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
+  #ユーザ関連付け
   belongs_to :user
-  has_one_attached :post_imege
+  has_one_attached :post_image
   #コメント関連付け
   has_many :comments, dependent: :destroy
   #いいね関連付け
@@ -8,5 +9,13 @@ class Post < ApplicationRecord
 
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
+  end
+  #投稿の画像定義付け
+  def get_post_image(width,height)
+    unless post_image.attached?
+      file_path = Rails.root.join('app/assets/images/no_image.jpeg')
+      post_image.attach(io: File.open(file_path),filename:'default-image.jpg', content_type:'image/jpeg')
+    end
+    post_image.variant(resize_to_limit:[width,height]).processed
   end
 end

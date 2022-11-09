@@ -22,15 +22,16 @@
     <%= link_to "Favorite", root_path, class: "btn btn-success btn-lg mx-3" %>
     <%= link_to "Follow", root_path, class: "btn btn-success btn-lg mx-3" %>
     <%= link_to "Follower", root_path, class: "btn btn-success btn-lg mx-3" %>
+    <%= link_to 'NewIcon', new_post_path, class: "btn btn-success btn-lg mx-3" %>
   <% else %>
     <%= link_to "Follow", root_path, class: "btn btn-success btn-lg mx-3" %>
   <% end %>
 </div>
 <!--ユーザーの投稿一覧 10件でページネーション-->
 <div class="row">
-  <%= @posts.each do |post| %>
-    <% link_to post_path(post) do %>
-      <%= image_tag post.get_image(100, 100) %>
+  <% @posts.each do |post| %>
+    <%= link_to post_path(post) do %>
+      <%= image_tag post.get_post_image(100, 100) %>
     <% end %>
   <% end %>
 </div>

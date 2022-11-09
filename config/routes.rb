@@ -22,12 +22,12 @@ Rails.application.routes.draw do
     root to: "homes#top"
     get 'about' => 'homes#about'
 
-    resources :posts, only:[:index,:show,:create,:edit,:destroy,:update] do
+    resources :posts, only:[:new, :index, :show, :create, :edit, :destroy, :update] do
       resources :comments, only:[:create] #コメント
-      resource :favorites, only:[:create,:destroy] #いいね
+      resource :favorites, only:[:create, :destroy] #いいね
     end
 
-    resources :users, only:[:index,:show,:edit,:update] do
+    resources :users, only:[:index, :show, :edit, :update] do
       resource :relationships, only:[:create,:destroy]
       get 'followings' => 'relationships#followings', as: 'followings' #フォロー
       get 'followers'  => 'relationships#followers' , as: 'followers' #フォロワー
