@@ -30,3 +30,21 @@
 </div>
 
 <%= link_to "削除", post_path(@post), method: :delete, class: "btn btn-danger btn-sm" %>
+
+<div>
+  <p>コメント件数：<%= @post.comments.count %></p>
+  <% @post.comments.each do |comment| %>
+    <p><%= image_tag comment.user.get_user_image(100,100) %></p>
+    <%= comment.user.name %>
+    <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+    <% if comment.user == current_user %>
+      <%= link_to "Delete", post_comment_path(comment.post, comment), method: :delete, class: "btn btn-sm btn-danger" %>
+    <% end %>
+  <% end %>
+</div>
+<div>
+  <%= form_with model: [@post, @comment] do |f| %>
+    <%= f.text_area :comment, rows: '5', placeholder: "Comments" %>
+    <%= f.submit "送信する" %>
+  <% end %>
+</div>

@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   #コメント関連付け
   has_many :comments, dependent: :destroy
   #いいね関連付け
-  has_many :favorite, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)

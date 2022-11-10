@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     get 'about' => 'homes#about'
 
     resources :posts, only:[:new, :index, :show, :create, :edit, :destroy, :update] do
-      resources :comments, only:[:create] #コメント
+      resources :comments, only:[:create, :destroy] #コメント
       resource :favorites, only:[:create, :destroy] #いいね
     end
 
@@ -31,6 +31,11 @@ Rails.application.routes.draw do
       resource :relationships, only:[:create,:destroy]
       get 'followings' => 'relationships#followings', as: 'followings' #フォロー
       get 'followers'  => 'relationships#followers' , as: 'followers' #フォロワー
+      member do
+         get :favorites #いいね一覧用
+         get :followings #フォロー一覧用
+         get :followers #フォロワー一覧用
+      end
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
