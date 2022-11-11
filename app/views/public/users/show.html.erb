@@ -1,41 +1,45 @@
-<div class="row justify-content-center my-3">
-  <%= image_tag @user.get_user_image(250, 250) %><br>
-</div>
-<!--ニックネーム-->
-<div class="row justify-content-center mb-3">
-  <h3><%= @user.name %></h3>
-</div>
-<!--メールアドレス ログインユーザーのみ-->
-<% if @user == current_user %>
-  <div class="row justify-content-center mb-3">
-    <h5><%= @user.email %></h5>
+<div class="container">
+  <!--ユーザーアイコン画像-->
+  <div class="row justify-content-center my-3">
+    <%= image_tag @user.get_user_image(250, 250) %><br>
   </div>
-<% end %>
-<!--ユーザーのキャプション-->
-<div class="row justify-content-center mb-3">
-  <p><%= @user.user_caption %></p>
-</div>
-<!--ボタン一覧（ログインユーザーかどうかで表示が変わる）-->
-<div class="row justify-content-center mb-3">
+  <!--ニックネーム-->
+  <div class="row justify-content-center mb-3">
+    <h3><%= @user.name %></h3>
+  </div>
+  <!--メールアドレス ログインユーザーのみ-->
   <% if @user == current_user %>
-    <%= link_to "UserEdit", edit_user_path, class: "btn btn-success  btn-lg mx-3" %>
-    <%= link_to "Favorite", favorites_user_path(@user), class: "btn btn-success btn-lg mx-3" %>
-    <%= link_to "Follow", followings_user_path(@user), class: "btn btn-success btn-lg mx-3" %>
-    <%= link_to "Follower", followers_user_path(@user), class: "btn btn-success btn-lg mx-3" %>
-    <%= link_to 'NewIcon', new_post_path, class: "btn btn-success btn-lg mx-3" %>
-  <% else %>
-    <% if current_user.following?(@user) %>
-      <%= link_to "フォロー外す", user_relationships_path(@user), method: :delete, class: "btn" %>
+    <div class="row justify-content-center mb-3">
+      <h5><%= @user.email %></h5>
+    </div>
+  <% end %>
+  <!--ユーザーのキャプション-->
+  <div class="row justify-content-center mb-3">
+    <p><%= @user.user_caption %></p>
+  </div>
+  <!--フォロー、フォロワー数-->
+  <div class="row justify-content-center mb-3">
+    <p class="mr-3">Follow <%= @user.followings.count %></p>
+    <p class="ml-3">Follower <%= @user.followers.count %></p>
+  </div>
+  <!--ボタン一覧（ログインユーザーかどうかで表示が変わる）-->
+  <div class="row justify-content-center mb-3">
+    <% if @user == current_user %>
+      <%= link_to "UserEdit", edit_user_path, class: "btn btn-light  btn-lg mx-3" %> <!--会員編集ページへ-->
+      <%= link_to "Favorite", favorites_user_path(@user), class: "btn btn-light btn-lg mx-3" %> <!--いいねした投稿一覧へ-->
+      <%= link_to "Follow", followings_user_path(@user), class: "btn btn-light btn-lg mx-3" %> <!--フォローしているユーザー一覧へ-->
+      <%= link_to "Follower", followers_user_path(@user), class: "btn btn-light btn-lg mx-3" %> <<!--フォローされてるユーザー一覧へ-->
+      <%= link_to 'NewIcon', new_post_path, class: "btn btn-light btn-lg mx-3" %>
     <% else %>
-      <%= link_to "フォローする", user_relationships_path(@user), method: :post, class: "btn" %>
+      <%= render "public/relationships/followbtn", user: @user %> <!--フォローボタン-->
     <% end %>
-  <% end %>
-</div>
-<!--ユーザーの投稿一覧 10件でページネーション-->
-<div class="row">
-  <% @posts.each do |post| %>
-    <%= link_to post_path(post) do %>
-      <%= image_tag post.get_post_image(100, 100) %>
+  </div>
+  <!--ユーザーの投稿一覧 10件でページネーション-->
+  <div class="row">
+    <% @posts.each do |post| %>
+      <%= link_to post_path(post) do %>
+        <%= image_tag post.get_post_image(150, 150) %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>

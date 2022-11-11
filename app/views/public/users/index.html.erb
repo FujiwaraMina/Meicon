@@ -1,18 +1,26 @@
-<h1 class="my-3">Users</h1>
+<div class="container">
+  <h1 class="my-3">Users</h1>
 
-<div class="row justify-content-center">
-  <table class="table">
-    <tbody>
-      <% @users.each do |user| %>
-        <tr>
-          <td>
-            <%= link_to user_path(user) do %>
-              <%= image_tag user.get_user_image(100, 100) %>
+  <div class="row justify-content-center">
+    <table class="table">
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td>
+              <%= link_to user_path(user) do %>
+                <%= image_tag user.get_user_image(100, 100) %>
+              <% end %>
+            </td>
+            <td class="align-middle"><span><%= user.name %></span></td>  <!--ユーザーネーム-->
+            <td class="align-middle">Follow <%= user.followings.count %></td> <!--フォロー数-->
+            <td class="align-middle">Follower <%= user.followers.count %></td> <!--フォロワー数-->
+            <!--フォローボタン-->
+            <% unless user == current_user %>
+              <td class="align-middle"><%= render "public/relationships/followbtn", user: user %></td>
             <% end %>
-          </td>
-          <td><span><%= user.name %></span></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
