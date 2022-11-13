@@ -1,7 +1,7 @@
 <div class="container">
   <!--ユーザーアイコン画像-->
   <div class="row justify-content-center my-3">
-    <%= image_tag @user.get_user_image(250, 250) %><br>
+    <%= image_tag @user.get_user_image(250, 250), class: "user_icon" %><br>
   </div>
   <!--ニックネーム-->
   <div class="row justify-content-center mb-3">
@@ -36,10 +36,6 @@
   </div>
   <!--ユーザーの投稿一覧 10件でページネーション-->
   <div class="row">
-    <% @posts.each do |post| %>
-      <%= link_to post_path(post) do %>
-        <%= image_tag post.get_post_image(150, 150) %>
-      <% end %>
-    <% end %>
+    <%= render "public/posts/index", posts: @posts %>
   </div>
 </div>

@@ -1,8 +1,7 @@
-<h1 class="my-3">Icons</h1>
-<div class="row">
-  <% @post.each do |post| %>
-    <%= link_to post_path(post) do %>
-      <%= image_tag post.get_post_image(100, 100) %>
-    <% end %>
-  <% end %>
+<div class="container">
+  <h1 class="my-3">Icons</h1>
+  <div class="row">
+    <!--アイコン一覧-->
+    <%= render "index", posts: @post %>
+  </div>
 </div>

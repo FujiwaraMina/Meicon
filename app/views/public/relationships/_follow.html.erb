@@ -1,13 +1,6 @@
 <% if users.exists? %>
   <% users.each do |user| %>
-    <table>
-      <thead>
-        <tr>
-          <th>name</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
+    <table class="table">
       <tbody>
         <tr>
           <td><%= user.name %></td>

@@ -49,6 +49,11 @@
             </li>
           <% end %>
         </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item ml-auto pr-3">
+            <%= render "public/searches/search", user: @user %>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>

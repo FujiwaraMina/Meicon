@@ -1,17 +1,19 @@
-<h2 class="my-3">Admin Log In</h2>
+<div class="container">
+  <h2 class="my-3">Admin Log In</h2>
 
-<%= form_with model: @admin, url: admin_session_path, id: "new_admin", class: "new_admin",local: true do |f| %>
-  <div class="field row justify-content-center mb-5">
-    <%= f.label :email, "メールアドレス", class: "col-3" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-5" %>
-  </div>
+  <%= form_with model: @admin, url: admin_session_path, id: "new_admin", class: "new_admin",local: true do |f| %>
+    <div class="field row justify-content-center mb-5">
+      <%= f.label :email, "メールアドレス", class: "col-3" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-5" %>
+    </div>
 
-  <div class="field row justify-content-center mb-5">
-    <%= f.label :password, "パスワード", class: "col-3" %>
-    <%= f.password_field :password, autocomplete: "current-password", class: "col-5" %>
-  </div>
+    <div class="field row justify-content-center mb-5">
+      <%= f.label :password, "パスワード", class: "col-3" %>
+      <%= f.password_field :password, autocomplete: "current-password", class: "col-5" %>
+    </div>
 
-  <div class="actions text-center mb-5">
-    <%= f.submit "ログイン", class: "btn btn-lg btn-light" %>
-  </div>
-<% end %>
+    <div class="actions text-center mb-5">
+      <%= f.submit "ログイン", class: "btn btn-lg btn-light" %>
+    </div>
+  <% end %>
+</div>

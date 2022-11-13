@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: "homes#top"
     get 'about' => 'homes#about'
+    # get 'download' => 'download#post_download'
+    get '/download/:id', to: 'download#post_download', as: 'download'
+    get 'search' => 'searches#search'
 
     resources :posts, only:[:new, :index, :show, :create, :edit, :destroy, :update] do
       resources :comments, only:[:create, :destroy] #コメント

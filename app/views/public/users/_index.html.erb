@@ -1,0 +1,16 @@
+<% users.each do |user| %>
+  <tr>
+    <td>
+      <%= link_to user_path(user) do %>
+        <%= image_tag user.get_user_image(100, 100), class: "user_icon" %>
+      <% end %>
+    </td>
+    <td class="align-middle"><span><%= user.name %></span></td>  <!--ユーザーネーム-->
+    <td class="align-middle">Follow <%= user.followings.count %></td> <!--フォロー数-->
+    <td class="align-middle">Follower <%= user.followers.count %></td> <!--フォロワー数-->
+    <!--フォローボタン-->
+    <% unless user == current_user %>
+      <td class="align-middle"><%= render "public/relationships/followbtn", user: user %></td>
+    <% end %>
+  </tr>
+<% end %>

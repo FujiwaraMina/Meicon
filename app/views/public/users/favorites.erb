@@ -1,7 +1,6 @@
-<h1><%= @user.name %>’s Favorites</h1>
-
-<% @favorite_posts.each do |post| %>
- <%= link_to post_path(post) do %>
-      <%= image_tag post.get_post_image(100, 100) %>
-    <% end %>
-<% end %>
+<div class="container">
+ <h1><%= @user.name %>’s Favorites</h1>
+ <div>
+ <%= render "public/posts/index", posts: @favorite_posts %>
+ </div>
+</div>
