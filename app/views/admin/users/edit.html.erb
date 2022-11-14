@@ -1,6 +1,8 @@
 <div class="container">
+  <!--エラーメッセージ-->
+  <%= render "layouts/error", obj: @user %>
   <h1 class="my-3">会員編集</h1>
-  
+
   <div>
     <%= form_with model: @user, url: admin_user_path, id: "new_user", class: "new_user",local: true do |f| %>
       <div class="field row justify-content-center mb-5">

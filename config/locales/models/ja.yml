@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        encrypted_password: パスワード(確認)
+    models:
+      post: アイコン
+    attributes:
+      post:
+        post_image: 画像
+        title: タイトル
+        body: キャプション

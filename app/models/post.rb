@@ -6,7 +6,8 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   #いいね関連付け
   has_many :favorites, dependent: :destroy
-  #投稿のタイトル、キャプションが存在するかどうかのバリデーション
+  #投稿の画像、タイトル、キャプションが存在するかどうかのバリデーション
+  validates :post_image, presence: true
   validates :title, presence: true
   validates :body, presence: true
 

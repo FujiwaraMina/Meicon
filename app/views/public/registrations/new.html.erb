@@ -1,9 +1,9 @@
 <div class="container">
+  <!--エラーメッセージ-->
+  <%= render "layouts/error", obj: resource %>
   <h2 class="my-3">Sign Up</h2>
 
   <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-    <%= render "public/shared/error_messages", resource: resource %>
-
     <div class="field row justify-content-center mb-5">
       <%= f.label :name, "ニックネーム", class: "col-3" %>
       <%= f.text_field :name, autocomplete: "name", class: "col-5" %>
