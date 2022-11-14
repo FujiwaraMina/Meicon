@@ -16,6 +16,10 @@ class User < ApplicationRecord
   #フォロー一覧画面で使う
   has_many :followings, through: :relationships, source: :followed
   has_many :followers, through: :reverse_of_relationships, source: :follower
+  #会員のニックネーム、メールアドレス、パスワードが存在するかどうかのバリデーション
+  validates :name, presence: true
+  validates :email, presence: true
+  validates :encrypted_password, presence: true
   #フォローした時の処理
   def follow(user_id)
     relationships.create(followed_id: user_id)

@@ -3,4 +3,7 @@ class Admin < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  #メールアドレス、パスワードが存在するかどうかのバリデーション       
+  validates :email, presence: true
+  validates :encrypted_password, presence: true
 end

@@ -6,6 +6,9 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   #いいね関連付け
   has_many :favorites, dependent: :destroy
+  #投稿のタイトル、キャプションが存在するかどうかのバリデーション
+  validates :title, presence: true
+  validates :body, presence: true
 
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
