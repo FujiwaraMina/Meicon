@@ -1,5 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import url('https://fonts.googleapis.com/css2?family=Potta+One&family=Zen+Maru+Gothic&display=swap'); //Zen Maru Gothic
 
 .new-img{
   width: 400px;
@@ -14,4 +15,8 @@
 .p_posts_show{
   width: 400px;
   margin: 0 auto;
+}
+
+.font{
+  font-family: 'Zen Maru Gothic', sans-serif;
 }

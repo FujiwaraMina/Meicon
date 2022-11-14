@@ -3,12 +3,12 @@
     <!--メインビジュアル-->
     <%= image_tag "/assets/Logo.png", size: "150x210" %>
   </div>
-  <h2 class="d-flex justify-content-center">「顔」がみつかる</h2>
+  <h2 class="d-flex justify-content-center font">「顔」がみつかる</h2>
   <!--新着画像10件表示-->
   <div class="row flex-lg-wrap">
     <% @posts.last(10).each do |post| %>
       <%= link_to post_path(post) do %>
-        <%= image_tag post.get_post_image(150, 150), class: "mx-3 my-3" %>
+        <%= image_tag post.get_post_image(190, 190), class: "mx-3 my-3" %>
       <% end %>
     <% end %>
   </div>

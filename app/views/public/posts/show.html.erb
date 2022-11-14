@@ -6,11 +6,16 @@
     </div>
     <!--投稿画像-->
     <%= image_tag @post.get_post_image(400, 400) %>
-    <div>
+
       <!--投稿タイトル-->
-      <h3><%= @post.title %></h3>
+      <div class="p_posts_show text-break">
+      <h3><%= simple_format(@post.title) %></h3>
+      </div>
       <!--投稿キャプション-->
-      <p><%= @post.body %></p>
+      <div class="p_posts_show text-break">
+      <%= simple_format(@post.body) %>
+      </div>
+
       <div class="d-flex justify-content-between p_posts_show">
       <% if @post.user == current_user %>
         <!--投稿削除-->
@@ -23,7 +28,7 @@
         <%= render "favorite", post: @post %>
       <% end %>
       </div>
-    </div>
+
   </div>
 
   <div class="row justify-content-center my-3">
