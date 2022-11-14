@@ -38,4 +38,8 @@
   <div class="row">
     <%= render "public/posts/index", posts: @posts %>
   </div>
+  <!--ページネーション-->
+  <div class="row justify-content-center">
+    <%= paginate @posts %>
+  </div>
 </div>

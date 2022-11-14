@@ -3,4 +3,8 @@
   <div class="row justify-content-center">
     <%= render "follow", users: @users %>
   </div>
+  <!--ページネーション-->
+  <div class="row justify-content-center">
+    <%= paginate @users %>
+  </div>
 </div>

@@ -3,4 +3,8 @@
  <div>
  <%= render "public/posts/index", posts: @favorite_posts %>
  </div>
+ <!--ページネーション-->
+  <div class="row justify-content-center">
+    <%= paginate @favorite_posts %>
+  </div>
 </div>

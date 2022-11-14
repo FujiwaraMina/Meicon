@@ -8,9 +8,17 @@
         <%= render "public/users/index", users: @users %>
       </tbody>
     </table>
+    <!--ページネーション-->
+    <div class="row justify-content-center">
+      <%= paginate @users %>
+    </div>
   <% else %>
     <!--検索対象モデルがUserではない時(= 検索対象モデルがBookの時) -->
     <%= render "public/posts/index", posts: @posts %>
+    <!--ページネーション-->
+    <div class="row justify-content-center">
+      <%= paginate @posts %>
+    </div>
   <% end %>
   </div>
 </div>

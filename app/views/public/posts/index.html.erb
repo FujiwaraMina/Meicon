@@ -4,4 +4,8 @@
     <!--アイコン一覧-->
     <%= render "index", posts: @post %>
   </div>
+  <!--ページネーション-->
+  <div class="row justify-content-center">
+    <%= paginate @post %>
+  </div>
 </div>
