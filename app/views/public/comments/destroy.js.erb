@@ -1,0 +1,2 @@
+<!--id="comments_areaにをrenderで指定した部分テンプレートに更新-->
+$("#comments_area").html("<%= j(render 'public/comments/comment', post: @post, comment: @comment) %>");
