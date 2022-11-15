@@ -10,7 +10,7 @@
     <td class="align-middle">Follower <%= user.followers.count %></td> <!--フォロワー数-->
     <!--フォローボタン-->
     <% unless user == current_user %>
-      <td class="align-middle"><%= render "public/relationships/followbtn", user: user %></td>
+      <td id="follow-ajax", class="align-middle"><%= render "public/relationships/followbtn", user: user %></td>
     <% end %>
   </tr>
 <% end %>

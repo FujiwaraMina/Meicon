@@ -31,7 +31,9 @@
       <%= link_to "Follower", followers_user_path(@user), class: "btn btn-light btn-lg mx-3" %> <!--フォローされてるユーザー一覧へ-->
       <%= link_to 'NewIcon', new_post_path, class: "btn btn-light btn-lg mx-3" %>
     <% else %>
+      <span id="follow-ajax">
       <%= render "public/relationships/followbtn", user: @user %> <!--フォローボタン-->
+      </span>
     <% end %>
   </div>
   <!--ユーザーの投稿一覧 10件でページネーション-->
