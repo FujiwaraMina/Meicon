@@ -19,13 +19,19 @@
       <div class="d-flex justify-content-between p_posts_show">
       <% if @post.user == current_user %>
         <!--投稿削除-->
-        <%= link_to "削除", post_path(@post), method: :delete, class: "btn btn-danger" %>
+        <span><%= link_to "削除", post_path(@post), method: :delete, class: "btn btn-danger" %></span>
+        <!--投稿編集-->
+        <span><%= link_to "編集", edit_post_path(@post), class: "btn btn-light" %></span>
         <!--いいね-->
-        <%= render "favorite", post: @post %>
+        <h3 id="favorite_buttons_<%= @post.id %>">
+          <%= render "public/favorites/favorite", post: @post %>
+        </h3>
       <% else %>
-        <div></div>
+        <span></span>
         <!--いいね-->
-        <%= render "favorite", post: @post %>
+        <h3 id="favorite_buttons_<%= @post.id %>">
+          <%= render "publuc/favorites/favorite", post: @post %>
+        </h3>
       <% end %>
       </div>
 

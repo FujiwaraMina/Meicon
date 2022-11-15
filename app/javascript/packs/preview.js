@@ -1,5 +1,5 @@
-// ①新規投稿ページでのみ発火
-if (document.URL.match(/new/)){
+// 新規投稿、投稿編集ページで発火
+if (document.URL.match(/new/) || document.URL.match(/edit/)){
   // HTMLが最初に読み込まれたときに作動する関数
   document.addEventListener('DOMContentLoaded', () => {
     const createImageHTML = (blob) => {

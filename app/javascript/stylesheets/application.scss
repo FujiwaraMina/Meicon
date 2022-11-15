@@ -20,3 +20,22 @@
 .font{
   font-family: 'Zen Maru Gothic', sans-serif;
 }
+
+.about_bg{
+  background-image: url('../../assets/images/about_bg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 500px;
+}
+
+footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+main{
+  margin-bottom: 30px;
+}
