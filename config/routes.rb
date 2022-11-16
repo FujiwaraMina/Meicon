@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :users, only:[:show,:edit,:update]
-    resources :posts, only:[:show]
+    resources :users, only:[:show, :edit, :update]
+    resources :posts, only:[:show, :edit, :update, :destroy]
     root to: "homes#top"
   end
 

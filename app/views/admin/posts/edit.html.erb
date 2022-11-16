@@ -4,7 +4,7 @@
   <h1 class="my-3"></h1>
 
   <div class="row justify-content-center">
-    <%= form_with model: @post, url: post_path, locla: true, class: "col-6" do |f| %>
+    <%= form_with model: @post, url: admin_post_path, locla: true, class: "col-6" do |f| %>
     <!--プレビュー表示-->
     <div id="new-image", class="newimage row justify-content-center mb-5"></div>
       <div>
@@ -23,5 +23,4 @@
       </div>
     <% end %>
   </div>
-
 </div>

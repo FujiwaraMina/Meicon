@@ -2,25 +2,31 @@
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import url('https://fonts.googleapis.com/css2?family=Potta+One&family=Zen+Maru+Gothic&display=swap'); //Zen Maru Gothic
 
+// プレビュー表示
 .new-img{
   width: 400px;
   object-fit: cover;
 }
-
+// ユーザーアイコンを丸にする
 .user_icon{
   border-radius: 50%;  //角丸半径を50%にする(=円形にする) 50%以上は表示に変化なし
   object-fit: cover; //縦横比固定したまま範囲内に収まるように配置する
 }
-
+// 投稿詳細画面の横幅
 .p_posts_show{
   width: 400px;
   margin: 0 auto;
 }
-
+// 会員詳細の横幅
+.p_users_show{
+  width: 400px;
+  margin: 0 auto;
+}
+// フォント変更
 .font{
   font-family: 'Zen Maru Gothic', sans-serif;
 }
-
+// about画面の背景画像
 .about_bg{
   background-image: url('../../assets/images/about_bg.png');
   background-size: contain;
@@ -28,14 +34,18 @@
   background-position: center;
   height: 500px;
 }
-
+// フッターの下部固定
 footer{
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
 }
-
+// フッターが重なる部分に空白
 main{
-  margin-bottom: 30px;
+  margin-bottom: 50px;
+}
+// いいねの色変更
+.fa-heart{
+  color: #ff69b4;
 }

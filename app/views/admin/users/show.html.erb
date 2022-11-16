@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container font">
   <h1 class="my-3">会員詳細</h1>
   <div class="row justify-content-center">
     <div class="col-8">
@@ -27,7 +27,11 @@
 
   <!--ユーザーの投稿一覧-->
   <div class="row">
-    <%= render "public/posts/index", posts: @posts %>
+    <% @posts.each do |post| %>
+      <%= link_to admin_post_path(post) do %>
+       <%= image_tag post.get_post_image(190, 190), class: "mx-3 my-3" %>
+      <% end %>
+    <% end %>
   </div>
   <!--ページネーション-->
   <div class="row justify-content-center">

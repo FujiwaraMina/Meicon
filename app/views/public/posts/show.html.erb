@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container font">
   <div class="row p_posts_show">
     <div>
       <%= image_tag @user.get_user_image(50, 50), class: "user_icon my-3" %>
@@ -30,7 +30,7 @@
         <span></span>
         <!--いいね-->
         <h3 id="favorite_buttons_<%= @post.id %>">
-          <%= render "publuc/favorites/favorite", post: @post %>
+          <%= render "public/favorites/favorite", post: @post %>
         </h3>
       <% end %>
       </div>
