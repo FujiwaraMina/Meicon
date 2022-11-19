@@ -16,11 +16,13 @@ class Post < ApplicationRecord
   end
   #投稿の画像定義付け
   def get_post_image(width,height)
+    # 画像を持っていない場合
     unless post_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpeg')
       post_image.attach(io: File.open(file_path),filename:'default-image.jpg', content_type:'image/jpeg')
+    # 画像を持っている場合
     end
-    post_image.variant(resize_to_limit:[width,height]).processed
+    post_image.variant(resize_to_fill:[width,height]).processed
   end
   #検索方法分岐
   def self.looks(search, word)
