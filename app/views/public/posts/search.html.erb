@@ -1,0 +1,9 @@
+<div class="container font">
+ <h1 class="my-3">Results <%= @tag.tag_name %></h1>
+ 
+ <%= render "public/posts/index", posts: @posts %>
+    <!--ページネーション-->
+  <div class="row justify-content-center">
+    <%= paginate @posts %>
+  </div>
+</div>

@@ -21,9 +21,8 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: "homes#top"
     get 'about' => 'homes#about'
-    # get 'download' => 'download#post_download'
-    get '/download/:id', to: 'download#post_download', as: 'download'
-    get 'search' => 'searches#search'
+    get '/download/:id', to: 'download#post_download', as: 'download' #投稿画像ダウンロード
+    get 'search' => 'searches#search' #ワード検索
 
     resources :posts, only:[:new, :index, :show, :create, :edit, :destroy, :update] do
       resources :comments, only:[:create, :destroy] #コメント
@@ -39,6 +38,10 @@ Rails.application.routes.draw do
          get :followings #フォロー一覧用
          get :followers #フォロワー一覧用
       end
+    end
+
+    resources :tags do
+      get "posts"=>"posts#search" #タグのリンク検索
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

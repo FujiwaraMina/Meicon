@@ -12,8 +12,21 @@
     <div class="row justify-content-center">
       <%= paginate @users %>
     </div>
+  <% elsif @range == "Tag" %>
+    <!--検索対象モデルがTagの時 -->
+    <% @tags.each do |tag| %>
+      <% tag.posts.each do |post| %>
+        <%= link_to post_path(post) do %>
+          <%= image_tag post.get_post_image(190, 190), class: "mx-3 my-3" %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <!--ページネーション-->
+    <div class="row justify-content-center">
+      <%= paginate @tags %>
+    </div>
   <% else %>
-    <!--検索対象モデルがUserではない時(= 検索対象モデルがBookの時) -->
+    <!--検索対象モデルがPostの時 -->
     <%= render "public/posts/index", posts: @posts %>
     <!--ページネーション-->
     <div class="row justify-content-center">

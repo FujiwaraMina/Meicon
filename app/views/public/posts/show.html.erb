@@ -16,6 +16,12 @@
       <div class="p_posts_show text-break">
       <%= simple_format(@post.body) %>
       </div>
+      <!--投稿タグ-->
+      <div class="p_posts_show text-break">
+      <% @post.tags.each do |tag| %>
+        <%= link_to tag.tag_name, tag_posts_path(tag_id: tag.id) %>
+      <% end %>
+      </div>
 
       <div class="d-flex justify-content-between p_posts_show">
       <% if @post.user == current_user %>
