@@ -1,20 +1,21 @@
 class Post < ApplicationRecord
-  #ユーザ関連付け
+  #ユーザは投稿を多数所持する
   belongs_to :user
+  # 1対１(単数枚画像投稿)で関連付け
   has_one_attached :post_image
   #コメント関連付け
   has_many :comments, dependent: :destroy
   #いいね関連付け
   has_many :favorites, dependent: :destroy
   #タグと投稿の中間テーブル関連付け
-  has_many :post_tags,dependent: :destroy
+  has_many :post_tags, dependent: :destroy
   #タグ関連づけ
-  has_many :tags, through: :post_tags, dependent: :destroy
+  has_many :tags, through: :post_tags
   #投稿の画像、タイトル、キャプションが存在するかどうかのバリデーション
   validates :post_image, presence: true
   validates :title, presence: true
   validates :body, presence: true
-
+  # 会員がいいねしてるかどうか
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
@@ -52,7 +53,7 @@ class Post < ApplicationRecord
     new_tags = sent_tags - current_tags
     # 古いタグを消す
     old_tags.each do |old|
-      self.tags.delete　Tag.find_by(tag_name: old)
+      self.tags.delete　Tag.find_by(name: old)
     end
     # 新しいタグを保存
     new_tags.each do |new|

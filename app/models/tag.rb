@@ -2,7 +2,7 @@ class Tag < ApplicationRecord
   has_many :post_tags,dependent: :destroy, foreign_key: 'tag_id'
   #post_tagを通じて投稿を参照する
   has_many :posts,through: :post_tags
-
+  # 1つの投稿に同じタグは付けれない
   validates :tag_name, uniqueness: true, presence: true
   # タグ検索関連付け
   def self.looks(search, word)

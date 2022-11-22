@@ -13,15 +13,16 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user = @post.user
     @comment = Comment.new
-    # @post_tags = @post.tags
   end
 
   def create
     @post_new = Post.new(post_params)
     @post_new.user_id = current_user.id
     tag_list=params[:post][:tag_name].split(',')
+    # 重複しているタグはuniqメソッドで取り除く
+    tag_list_uniq = tag_list.uniq
     if @post_new.save
-      @post_new.save_tag(tag_list)
+      @post_new.save_tag(tag_list_uniq)
       flash[:notice] = "投稿しました"
       redirect_to post_path(@post_new)
     else
@@ -43,18 +44,21 @@ class Public::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    tag_list = params[:post][:tag_name].split
+    tag_list = params[:post][:tag_name].split(',')
+    # 重複しているタグはuniqメソッドで取り除く
+    tag_list_uniq = tag_list.uniq
     # もしpostの情報が更新されたら
     if @post.update(post_params)
-      # このpost_idに紐づいていたタグを@oldに入れる
-      @old_relations=PostTag.where(post_id: @post.id)
+       # このpost_idに紐づいていたタグを@oldに入れる
+       @old_relations = PostTag.where(post_id: @post.id)
        # それらを取り出し消去
-      @old_relations.each do |relation|
+       @old_relations.each do |relation|
         relation.delete
-      end
-      @post.save_tag(tag_list)
-      flash[:notice] = "投稿を編集しました"
-      redirect_to post_path
+       end
+       @post.save_tag(tag_list_uniq)
+       flash[:notice] = "投稿を編集しました"
+       redirect_to post_path
+      # end
     else
       render :edit
     end
