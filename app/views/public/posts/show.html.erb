@@ -2,7 +2,9 @@
   <%= render "layouts/flash" %>
   <div class="row p_posts_show">
     <div>
-      <%= image_tag @user.get_user_image(50, 50), class: "user_icon my-3" %>
+      <%= link_to user_path(@post.user), class: "text-decoration-none" do %>
+        <%= image_tag @user.get_user_image(50, 50), class: "user_icon my-3" %>
+      <% end %>
       <%= @user.name %>
     </div>
     <!--投稿画像-->

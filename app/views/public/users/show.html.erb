@@ -21,7 +21,7 @@
   <!--フォロー、フォロワー数-->
   <div class="row justify-content-center mb-3">
     <p class="mr-3">Follow <%= @user.followings.count %></p>
-    <p class="ml-3">Follower <%= @user.followers.count %></p>
+    <p id="followercount-ajax", class="ml-3">Follower <%= @user.followers.count %></p>
   </div>
   <!--ボタン一覧（ログインユーザーかどうかで表示が変わる）-->
   <div class="row justify-content-center mb-3">
@@ -32,7 +32,7 @@
       <%= link_to "Follower", followers_user_path(@user), class: "btn btn-light btn-lg mx-3" %> <!--フォローされてるユーザー一覧へ-->
       <%= link_to 'NewIcon', new_post_path, class: "btn btn-light btn-lg mx-3" %>
     <% else %>
-      <span id="follow-ajax">
+      <span id="followbtn-ajax">
       <%= render "public/relationships/followbtn", user: @user %> <!--フォローボタン-->
       </span>
     <% end %>

@@ -1,12 +1,8 @@
 <div class="container font">
   <h1 class="my-3">Users</h1>
 
-  <div class="row justify-content-center">
-    <table class="table">
-      <tbody>
-        <%= render "public/users/index", users: @users %>
-      </tbody>
-    </table>
+  <div id="follow-ajax", class="row justify-content-center">
+    <%= render "public/users/index", users: @users %>
   </div>
   <!--ページネーション-->
   <div class="row justify-content-center">

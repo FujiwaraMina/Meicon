@@ -1,16 +1,29 @@
-<% users.each do |user| %>
-  <tr>
-    <td>
-      <%= link_to user_path(user) do %>
-        <%= image_tag user.get_user_image(100, 100), class: "user_icon" %>
+<table class="table">
+  <tbody>
+     <% users.each do |user| %>
+        <tr>
+          <td>
+            <%= link_to user_path(user), class: "text-decoration-none" do %>
+              <%= image_tag user.get_user_image(50, 50), class: "user_icon" %>
+            <% end %>
+          </td>
+          <td><span><%= user.name %></span></td>  <!--ユーザーネーム-->
+          <td>Follow: <%= user.followings.count %></td> <!--フォロー数-->
+          <td>Follower: <%= user.followers.count %></td> <!--フォロワー数-->
+
+          <!--フォローボタン-->
+          <% if user != current_user %>
+            <td>
+              <% if current_user.following?(user) %>
+                <%= link_to "フォロー外す", user_relationships_path(user.id), method: :delete, remote: true, class: "btn btn-light" %>
+              <% else %>
+                <%= link_to "フォローする", user_relationships_path(user.id), method: :post, remote: true, class: "btn btn-light" %>
+              <% end %>
+            </td>
+          <% else %>
+            <td></td>
+          <% end %>
+        </tr>
       <% end %>
-    </td>
-    <td class="align-middle"><span><%= user.name %></span></td>  <!--ユーザーネーム-->
-    <td class="align-middle">Follow <%= user.followings.count %></td> <!--フォロー数-->
-    <td class="align-middle">Follower <%= user.followers.count %></td> <!--フォロワー数-->
-    <!--フォローボタン-->
-    <% unless user == current_user %>
-      <td id="follow-ajax", class="align-middle"><%= render "public/relationships/followbtn", user: user %></td>
-    <% end %>
-  </tr>
-<% end %>
+    </tbody>
+</table>
