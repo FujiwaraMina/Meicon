@@ -30,10 +30,10 @@
       <%= link_to "Favorite", favorites_user_path(@user), class: "btn btn-light btn-lg mx-3" %> <!--いいねした投稿一覧へ-->
       <%= link_to "Follow", followings_user_path(@user), class: "btn btn-light btn-lg mx-3" %> <!--フォローしているユーザー一覧へ-->
       <%= link_to "Follower", followers_user_path(@user), class: "btn btn-light btn-lg mx-3" %> <!--フォローされてるユーザー一覧へ-->
-      <%= link_to 'NewIcon', new_post_path, class: "btn btn-light btn-lg mx-3" %>
+      <%= link_to 'NewIcon', new_post_path, class: "btn btn-light btn-lg mx-3" %> <!--新規投稿へ-->
     <% else %>
       <span id="followbtn-ajax">
-      <%= render "public/relationships/followbtn", user: @user %> <!--フォローボタン-->
+        <%= render "public/relationships/followbtn", user: @user %> <!--フォローボタン-->
       </span>
     <% end %>
   </div>

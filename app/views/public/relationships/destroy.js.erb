@@ -1,6 +1,4 @@
-$('#followbtn-ajax').html("<%= j(render "public/relationships/followbtn", user: @user) %>");
-<!--フォロー数-->
-<!--$('#followcount-ajax').html("Follow <%#= @user.followings.count %>");-->
-<!--フォロワー数-->
-$('#followercount-ajax').html("Follower <%= @user.followers.count %>");
-$('#follow-ajax').html("<%= j(render "public/users/index", users: @users) %>");
+$('#followbtn-ajax').html("<%= j(render "public/relationships/followbtn", user: @user) %>"); <!--フォローボタンusers/show-->
+$('#followsearch-ajax').html("<%= j(render "public/relationships/follow", users: @users_search,  word: @word, search: @search) %>"); <!--searchのフォロー-->
+$('#followercount-ajax').html("Follower <%= @user.followers.count %>"); <!--フォロワー数users/show-->
+$('#follow-ajax').html("<%= j(render "public/users/index", users: @users) %>"); <!--usrs/indexのフォロー-->
