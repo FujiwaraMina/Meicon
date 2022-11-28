@@ -33,6 +33,10 @@ SNSで配布しているところもあるが、タイムラインがすぐに�
 - 検索機能
 
 ## 設計書
+- WBS https://docs.google.com/spreadsheets/d/1UhsCLJNgiqRGO9dZ6JaXmBx5LsAE7J4U-oxkFibHL5s/edit?usp=sharing
+- アプリケーション詳細設計書 https://docs.google.com/spreadsheets/d/178cQcC9r_--RYnNda2EHKPr0qKMT8CY0dDA7C6n3lm0/edit?usp=sharing
+- ER図 https://drive.google.com/file/d/1hMphSWPSuEtXFoXzdxA9WW82cttAjn1x/view?usp=sharing
+- テーブル定義書 https://docs.google.com/spreadsheets/d/1JoZqxkIZw__QA-rbfwTU6ZZ8-7jsxfJ3I5CVbDxYU4Y/edit?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -40,9 +44,6 @@ SNSで配布しているところもあるが、タイムラインがすぐに�
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
-
-## 使用素材
-使用予定あり
 
 ## 文責
 藤原三奈
