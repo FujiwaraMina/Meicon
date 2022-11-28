@@ -1,7 +1,7 @@
 <div class="container font">
  <h1><%= @user.name %>’s Favorites</h1>
- <div>
- <%= render "public/posts/index", posts: @favorite_posts %>
+ <div class="row">
+  <%= render "public/posts/index", posts: @favorite_posts %>
  </div>
  <!--ページネーション-->
   <div class="row justify-content-center">
