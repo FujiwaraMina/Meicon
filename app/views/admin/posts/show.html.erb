@@ -7,21 +7,21 @@
     <!--投稿画像-->
     <%= image_tag @post.get_post_image(400, 400) %>
 
-      <!--投稿タイトル-->
-      <div class="p_posts_show text-break">
+    <!--投稿タイトル-->
+    <div class="p_posts_show text-break">
       <h3><%= simple_format(@post.title) %></h3>
-      </div>
-      <!--投稿キャプション-->
-      <div class="p_posts_show text-break">
+    </div>
+    <!--投稿キャプション-->
+    <div class="p_posts_show text-break">
       <%= simple_format(@post.body) %>
-      </div>
+    </div>
 
-      <div class="d-flex justify-content-between p_posts_show">
-        <!--投稿削除-->
-        <span><%= link_to "削除", admin_post_path(@post), method: :delete, class: "btn btn-danger" %></span>
-        <!--投稿編集-->
-        <span><%= link_to "編集", edit_admin_post_path(@post), class: "btn btn-light" %></span>
-      </div>
+    <div class="d-flex justify-content-between p_posts_show">
+      <!--投稿削除-->
+      <span><%= link_to "削除", admin_post_path(@post), method: :delete, class: "btn btn-danger" %></span>
+      <!--投稿編集-->
+      <span><%= link_to "編集", edit_admin_post_path(@post), class: "btn btn-light" %></span>
+    </div>
 
   </div>
 </div>
